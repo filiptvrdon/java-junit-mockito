@@ -1,0 +1,226 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 266338304 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3527), pid=3656, tid=31612
+#
+# JRE version:  (19.0.1+10) (build )
+# Java VM: OpenJDK 64-Bit Server VM (19.0.1+10-21, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dnet.bytebuddy.agent.attacher.dump= net.bytebuddy.agent.Attacher com.sun.tools.attach.VirtualMachine 22268 C:\Users\Filip\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.4\byte-buddy-agent-1.14.4.jar false 
+
+Host: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz, 8 cores, 15G,  Windows 11 , 64 bit Build 22621 (10.0.22621.1635)
+Time: Tue Jun 13 06:50:11 2023 Central Europe Daylight Time elapsed time: 0.025330 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001a0d20ec7d0):  JavaThread "Unknown thread" [_thread_in_vm, id=31612, stack(0x0000002207000000,0x0000002207100000)]
+
+Stack: [0x0000002207000000,0x0000002207100000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6ee8fa]
+V  [jvm.dll+0x857a1e]
+V  [jvm.dll+0x85940e]
+V  [jvm.dll+0x859ac3]
+V  [jvm.dll+0x28291f]
+V  [jvm.dll+0x6eb6e9]
+V  [jvm.dll+0x6e028a]
+V  [jvm.dll+0x357136]
+V  [jvm.dll+0x35eb96]
+V  [jvm.dll+0x3b555e]
+V  [jvm.dll+0x3b578f]
+V  [jvm.dll+0x32c6ea]
+V  [jvm.dll+0x32d59e]
+V  [jvm.dll+0x821b20]
+V  [jvm.dll+0x3c27c1]
+V  [jvm.dll+0x8022f1]
+V  [jvm.dll+0x44b30f]
+V  [jvm.dll+0x44cc91]
+C  [jli.dll+0x5287]
+C  [ucrtbase.dll+0x29363]
+C  [KERNEL32.DLL+0x126ad]
+C  [ntdll.dll+0x5a9f8]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffdd973d048, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001a0d429bca0 WorkerThread "GC Thread#0" [stack: 0x0000002207100000,0x0000002207200000] [id=22792]
+  0x000001a0d42acc80 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000002207200000,0x0000002207300000] [id=23684]
+  0x000001a0d42ade50 WorkerThread "G1 Conc#0" [stack: 0x0000002207300000,0x0000002207400000] [id=16600]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffdd8efd127]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001a0d422c270] Heap_lock - owner thread: 0x000001a0d20ec7d0
+
+Heap address: 0x0000000702800000, size: 4056 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 16 size 48 Howl #buckets 8 coarsen threshold 3686 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 4096
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000702800000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffdd9306959]
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.018 Loaded shared library C:\Users\Filip\.jdks\openjdk-19.0.1\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff749e80000 - 0x00007ff749e8e000 	C:\Users\Filip\.jdks\openjdk-19.0.1\bin\java.exe
+0x00007ffe839f0000 - 0x00007ffe83c04000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffe822d0000 - 0x00007ffe82392000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffe80e40000 - 0x00007ffe811e3000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffe816d0000 - 0x00007ffe817e1000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffe68990000 - 0x00007ffe689a7000 	C:\Users\Filip\.jdks\openjdk-19.0.1\bin\jli.dll
+0x00007ffe6c7a0000 - 0x00007ffe6c7bb000 	C:\Users\Filip\.jdks\openjdk-19.0.1\bin\VCRUNTIME140.dll
+0x00007ffe81900000 - 0x00007ffe81aab000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffe80e10000 - 0x00007ffe80e36000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffe66410000 - 0x00007ffe6669e000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.1635_none_270f70857386168e\COMCTL32.dll
+0x00007ffe82a40000 - 0x00007ffe82ae7000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffe828c0000 - 0x00007ffe828e9000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffe811f0000 - 0x00007ffe81308000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffe814f0000 - 0x00007ffe8158a000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffe81c50000 - 0x00007ffe81c81000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffe7e560000 - 0x00007ffe7e56c000 	C:\Users\Filip\.jdks\openjdk-19.0.1\bin\vcruntime140_1.dll
+0x00007ffe4fb30000 - 0x00007ffe4fbbe000 	C:\Users\Filip\.jdks\openjdk-19.0.1\bin\msvcp140.dll
+0x00007ffdd8bc0000 - 0x00007ffdd9880000 	C:\Users\Filip\.jdks\openjdk-19.0.1\bin\server\jvm.dll
+0x00007ffe81ec0000 - 0x00007ffe81f6e000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffe81e00000 - 0x00007ffe81ea4000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffe828f0000 - 0x00007ffe82a07000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffe678f0000 - 0x00007ffe678f9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffe742f0000 - 0x00007ffe742fa000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffe6ec30000 - 0x00007ffe6ec64000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffe83930000 - 0x00007ffe839a1000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffe7ff10000 - 0x00007ffe7ff28000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffe7e4c0000 - 0x00007ffe7e4ca000 	C:\Users\Filip\.jdks\openjdk-19.0.1\bin\jimage.dll
+0x00007ffe7e7d0000 - 0x00007ffe7e9fe000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffe835a0000 - 0x00007ffe83929000 	C:\WINDOWS\System32\combase.dll
+0x00007ffe81b10000 - 0x00007ffe81be7000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffe7db10000 - 0x00007ffe7db42000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffe81650000 - 0x00007ffe816cb000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffe66d90000 - 0x00007ffe66db6000 	C:\Users\Filip\.jdks\openjdk-19.0.1\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\Filip\.jdks\openjdk-19.0.1\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.1635_none_270f70857386168e;C:\Users\Filip\.jdks\openjdk-19.0.1\bin\server
+
+VM Arguments:
+jvm_args: -Dnet.bytebuddy.agent.attacher.dump= 
+java_command: net.bytebuddy.agent.Attacher com.sun.tools.attach.VirtualMachine 22268 C:\Users\Filip\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.4\byte-buddy-agent-1.14.4.jar false 
+java_class_path (initial): C:\Users\Filip\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.4\byte-buddy-agent-1.14.4.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 266338304                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4253024256                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4253024256                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_291
+PATH=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Eclipse Adoptium\jdk-17.0.5.8-hotspot\bin;C:\Program Files\Amazon Corretto\jdk11.0.16_9\bin;C:\Program Files\Java\jdk1.8.0_291\bin;C:\Program Files\nodejs\;C:\Program Files\Google\Google Apps Sync\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\eID_klient\;C:\Users\Filip\Documents\SQLite\sqlite-tools-win32-x86-3410200;C:\Users\Filip\AppData\Local\Microsoft\WindowsApps;C:\Users\Filip\AppData\Local\Yarn\bin;C:\Program Files\Maven\apache-maven-3.8.1\bin;C:\Program Files\Java\jdk1.8.0_291\bin;C:\Users\Filip\AppData\Roaming\npm;C:\Users\Filip\AppData\Local\GitHubDesktop\bin;C:\Users\Filip\Documents\SKDP\flyway-8.0.0;C:\Users\Filip\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Filip\Documents\SQLite\sqlite-tools-win32-x86-3410200;;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps
+USERNAME=Filip
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
+TMP=C:\Users\Filip\AppData\Local\Temp
+TEMP=C:\Users\Filip\AppData\Local\Temp
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22621 (10.0.22621.1635)
+OS uptime: 15 days 17:08 hours
+Hyper-V role detected
+
+CPU: total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 12 microcode 0xf6, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt, hv, rdtscp
+
+Memory: 4k page, system-wide physical 16221M (1151M free)
+TotalPageFile size 65373M (AvailPageFile size 257M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 60M, peak: 314M
+
+vm_info: OpenJDK 64-Bit Server VM (19.0.1+10-21) for windows-amd64 JRE (19.0.1+10-21), built on 2022-09-14T12:45:06Z by "mach5one" with MS VC++ 17.1 (VS2022)
+
+END.
